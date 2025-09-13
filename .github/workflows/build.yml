@@ -26,3 +26,10 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew build
+
+      - name: Upload Artifact Jar
+        uses: actions/upload-artifact@v4
+        with:
+          path: ${{ github.workspace }}/build/libs/*.jar
+          retention-days: 90
+          if-no-files-found: "error"
