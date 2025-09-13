@@ -4,7 +4,7 @@ on: [workflow_dispatch]
 
 jobs:
   build:
-    runs-on: debian-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -22,7 +22,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name:  Set Gradlew as Executable
-        run: ./gradlew build
+        run: chmod +x ./gradlew
 
       - name: Build with Gradle
-        run: chmod +x ./gradlew
+        run: ./gradlew build
